@@ -1,5 +1,6 @@
 import './App.css';
 import {useEffect, useState} from "react";
+import { Outlet, Link } from "react-router-dom";
 
 function App() {
 
@@ -43,24 +44,29 @@ function App() {
       return <div>Loading...</div>;
     } else {
       return (
+          <>
+          <Link to="/cards">Karty</Link> |{" "}
+          <Link to="/my-favorite">Moje ulubione</Link>
           <ul>
               {cards.results
-                  .map(card => (
-                  <li key={card.name}>
-                      Name: {card.name}
-                      {card.species}
-                      {/*{card.homeworld}*/}
-                      {/*Gender: {card.gender}*/}
-                      {/*{card.hair_color}*/}
-                      {/*{card.skin_color}*/}
-                      {/*{card.mass}*/}
-                      {/*{card.films}*/}
-                      {/*{card.vehicles}*/}
-                      {/*{card.starships}*/}
-                      {/*{card.species === 'n/a' ? '-': card.species}*/}
-                  </li>
+                .map(card => (
+                    <li key={card.name}>
+                         Name: {card.name}
+                        {card.species}
+                        {/*{card.homeworld}*/}
+                        {/*Gender: {card.gender}*/}
+                        {/*{card.hair_color}*/}
+                        {/*{card.skin_color}*/}
+                        {/*{card.mass}*/}
+                        {/*{card.films}*/}
+                        {/*{card.vehicles}*/}
+                        {/*{card.starships}*/}
+                        {/*{card.species === 'n/a' ? '-': card.species}*/}
+                    </li>
               ))}
           </ul>
+          <Outlet />
+          </>
       );
     }
 
