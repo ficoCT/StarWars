@@ -15,12 +15,14 @@ body {
 
 .links{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 2rem;
 
   &__link {
     width: 4rem;
     color: deepskyblue;
+    display: inline-block;
     font-size: 4rem;
     text-decoration: none;
   }
@@ -29,6 +31,16 @@ body {
 .table {
   display: flex;
   flex-direction: column;
+
+  &__change {
+    font-size: 4rem;
+    display: flex;
+    flex-direction: row;
+    color: deepskyblue;
+
+    &__title {}
+    margin: 2rem;
+  }
 
   &__cards {
     display: flex;
@@ -71,6 +83,11 @@ body {
     }
   }
 
+}
+
+.heart {
+  margin-top: 1rem;
+  color: red;
 }
 
 .paginate {
@@ -120,3 +137,5 @@ body {
   }
 
 }
+
+

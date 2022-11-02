@@ -5,10 +5,10 @@ function App() {
 
       return (
           <div className="container">
-              <div className="links">
-                  <Link className="links__link" to="/cards">Cards</Link>
-                  <Link className="links__link" to="/my-favorite">Favorite</Link>
-              </div>
+              {/*<div className="links">*/}
+              {/*    <Link className="links__link" to="/cards">Cards</Link>*/}
+              {/*    <Link className="links__link" to="/my-favorite">Favorite</Link>*/}
+              {/*</div>*/}
               <Outlet />
           </div>
       );

@@ -3,10 +3,12 @@ import {useEffect, useState} from "react";
 import ReactPaginate from 'react-paginate';
 import Card from './Card';
 
-export default function MyFavorite() {
+export default function Cards() {
 
     const [url, setUrl] = useState('https://swapi.dev/api/people');
     const [people, setPeople] = useState([]);
+    const [favorite, setFavorite] = useState([]);
+    const [change, setChange] = useState(true);
     const [pageCount, setPageCount] = useState(5);
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(null);
@@ -46,6 +48,13 @@ export default function MyFavorite() {
         handleFetch();
     };
 
+    const  onFavorite = (c) => {
+        console.log('onFavorite', c);
+        setFavorite(prevState => [...prevState, c]);
+        console.log('onFavorite2', favorite);
+    };
+
+
     useEffect(() => {
 
         handleFetch();
@@ -59,16 +68,31 @@ export default function MyFavorite() {
     } else {
         return (
             <div className="table">
+                <div className="table__change">
+                    <div className="table__change__title"  onClick={() => setChange(true)} >Cards</div>
+                    <div className="table__change__title"  onClick={() => setChange(false)}>Favorite</div>
+                </div>
                 <ul className="table__cards">
                     {
+                        change ?
                         people.length === 0 ?
-                            "Karty zaraz będą :)"
+                            "Kart jeszcze nie ma :)"
                             :
                             people.map(card => (
                                 <li key={card.name}>
-                                    <Card card={card}/>
+                                    <Card card={card} onFavorite={onFavorite}/>
                                 </li>
-                    ))}
+                            ))
+                        :
+                            favorite.length === 0 ?
+                            "Kart jeszcze nie ma :)"
+                        :
+                            favorite.map(card => (
+                            <li key={card.name}>
+                            <Card card={card} onFavorite={onFavorite}/>
+                            </li>
+                        ))
+                    }
                 </ul>
                 <ReactPaginate
                     pageCount={pageCount}

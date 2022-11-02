@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {useEffect, useState} from "react";
+import { FaHeart } from 'react-icons/fa';
 
-export default function Card({card}) {
+export default function Card({card, onFavorite}) {
 
     const [error, setError] = useState(null);
     const [homeworld, setHomeworld] = useState([]);
@@ -70,6 +71,11 @@ export default function Card({card}) {
         return response.json();
     }
 
+    function addFavorite() {
+        if (typeof onFavorite !== 'function') return;
+        onFavorite(card);
+    }
+
     useEffect(() => {
 
         handleFetch();
@@ -130,7 +136,7 @@ export default function Card({card}) {
                         " "
                         :
                         manySpecies.map(item => (
-                            <li key={item}>
+                            <li key={item.name}>
                                 {item.name}
                             </li>
                 ))}
@@ -142,7 +148,7 @@ export default function Card({card}) {
                         " "
                         :
                         films.map(item => (
-                            <li key={item}>
+                            <li key={item.title}>
                                 {item.title}
                             </li>
                 ))}
@@ -154,7 +160,7 @@ export default function Card({card}) {
                         " "
                         :
                         starships.map(item => (
-                            <li key={item}>
+                            <li key={item.name}>
                                 {item.name}
                             </li>
                 ))}  <br/>
@@ -166,11 +172,15 @@ export default function Card({card}) {
                         " "
                         :
                         vehicles.map(item => (
-                            <li key={item}>
+                            <li key={item.name}>
                                 {item.name}
                             </li>
-                ))}  <br/>
-                <br/>
+                ))}
+
+                <FaHeart
+                    onClick={addFavorite}
+                    className="heart"
+                />
            </span>
         </div>
     );
