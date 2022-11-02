@@ -12,13 +12,11 @@ export default function MyFavorite() {
     const [error, setError] = useState(null);
 
     const handleFetch = () => {
-        console.log('handleFetch');
+
         fetch(url)
             .then(checkStatus)
             .then(parseJSON)
             .then(body => {
-                console.log('body', body);
-                setUrl(body.next);
                 setPeople(body.results)
                 setIsLoaded(true);
                 setPageCount(Math.ceil(body.count/10));
@@ -72,7 +70,7 @@ export default function MyFavorite() {
                                 <li key={card.name}>
                                     <Card card={card}/>
                                 </li>
-                            ))}
+                    ))}
                 </ul>
                 <br />
                 <br />
