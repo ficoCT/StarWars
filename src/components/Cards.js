@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useEffect, useState} from "react";
 import ReactPaginate from 'react-paginate';
 import Card from './Card';
+import CardFavorite from './CardFavorite';
 
 export default function Cards() {
 
@@ -49,11 +50,8 @@ export default function Cards() {
     };
 
     const  onFavorite = (c) => {
-        console.log('onFavorite', c);
         setFavorite(prevState => [...prevState, c]);
-        console.log('onFavorite2', favorite);
     };
-
 
     useEffect(() => {
 
@@ -86,10 +84,10 @@ export default function Cards() {
                         :
                             favorite.length === 0 ?
                             "Kart jeszcze nie ma :)"
-                        :
+                            :
                             favorite.map(card => (
                             <li key={card.name}>
-                            <Card card={card} onFavorite={onFavorite}/>
+                            <CardFavorite card={card} onFavorite={onFavorite}/>
                             </li>
                         ))
                     }
