@@ -4,10 +4,12 @@ import './App.scss'
 function App() {
 
       return (
-          <div>
-          <Link to="/cards">Karty</Link> |{" "}
-          <Link to="/my-favorite">Moje ulubione</Link>
-          <Outlet />
+          <div className="container">
+              <div className="links">
+                  <Link className="links__link" to="/cards">Cards</Link>
+                  <Link className="links__link" to="/my-favorite">Favorite</Link>
+              </div>
+              <Outlet />
           </div>
       );
 

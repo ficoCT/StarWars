@@ -3,8 +3,6 @@ import {useEffect, useState} from "react";
 
 export default function Card({card}) {
 
-    console.log('card', card);
-
     const [error, setError] = useState(null);
     const [homeworld, setHomeworld] = useState([]);
     const [manySpecies, setManySpecies] = useState([]);

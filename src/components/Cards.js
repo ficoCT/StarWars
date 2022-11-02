@@ -58,10 +58,8 @@ export default function MyFavorite() {
         return <div>Karty zaraz będą :) ...</div>;
     } else {
         return (
-            <>
-                <br />
-                <br />
-                <ul>
+            <div className="table">
+                <ul className="table__cards">
                     {
                         people.length === 0 ?
                             "Karty zaraz będą :)"
@@ -72,22 +70,20 @@ export default function MyFavorite() {
                                 </li>
                     ))}
                 </ul>
-                <br />
-                <br />
                 <ReactPaginate
                     pageCount={pageCount}
                     pageRange={2}
                     marginPagesDisplayed={2}
                     onPageChange={handlePageChange}
-                    containerClassName={'container'}
-                    previousLinkClassName={'page'}
-                    breakClassName={'page'}
-                    nextLinkClassName={'page'}
-                    pageClassName={'page'}
-                    disabledClassNae={'disabled'}
-                    activeClassName={'active'}
+                    containerClassName={'paginate__container'}
+                    previousLinkClassName={'paginate__page'}
+                    breakClassName={'paginate__page'}
+                    nextLinkClassName={'paginate__page'}
+                    pageClassName={'paginate__page'}
+                    disabledClassNae={'paginate__disabled'}
+                    activeClassName={'paginate__active'}
                 />
-            </>
+            </div>
 
         );
     }
