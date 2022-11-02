@@ -79,57 +79,102 @@ export default function Card({card}) {
     }, [])
 
     return (
-        <>
-            {card.name} <br/>
-            {card.birth_year} <br/>
-            {card.created} <br/>
-            {card.edited} <br/>
-            {card.eye_color} <br/>
-            {card.gender} <br/>
-            {card.hair_color} <br/>
-            {card.height} <br/>
-            {homeworld} <br/>
-            {card.height} <br/>
-            {card.mass} <br/>
-            {card.skin_color} <br/>
-            {
-                manySpecies.length === 0 ?
-                    "------"
-                    :
-                    manySpecies.map(item => (
-                        <li key={item}>
-                            {item.name}
-                        </li>
-            ))}  <br/>
-            {
-                films.length === 0 ?
-                    "------"
-                    :
-                    films.map(item => (
-                        <li key={item}>
-                            {item.title}
-                        </li>
-            ))}  <br/>
-            {
-                starships.length === 0 ?
-                    "------"
-                    :
-                    starships.map(item => (
-                        <li key={item}>
-                            {item.name}
-                        </li>
-            ))}  <br/>
-            {
-                vehicles.length === 0 ?
-                    "------"
-                    :
-                    vehicles.map(item => (
-                        <li key={item}>
-                            {item.name}
-                        </li>
-            ))}  <br/>
-        <br/>
-        </>
+        <div class="card">
+            <div className="card__title">
+                {card.name} <br/>
+            </div>
+            <span className="card__text">
+                <div className="card__text__title">
+                    Birth Year
+                </div>
+                <span>{card.birth_year}</span>
+                <div className="card__text__title">
+                    Created
+                </div>
+                <span>{card.created}</span>
+                <div className="card__text__title">
+                    Edited
+                </div>
+                <span>{card.edited}</span>
+                <div className="card__text__title">
+                    Eye color
+                </div>
+                <span>{card.eye_color}</span>
+                <div className="card__text__title">
+                    Gender
+                </div>
+                <span>{card.gender}</span>
+                <div className="card__text__title">
+                    Hair color
+                </div>
+                <span>{card.hair_color}</span>
+                <div className="card__text__title">
+                    Height
+                </div>
+                <span>{card.height}</span>
+                <div className="card__text__title">
+                    Homeworld
+                </div>
+                <span>{homeworld}</span>
+                <div className="card__text__title">
+                    Mass
+                </div>
+                <span>{card.mass}</span>
+                <div className="card__text__title">
+                    Skin color
+                </div>
+                <span>{card.skin_color}</span>
+                <div className="card__text__title">
+                    Species
+                </div>
+                {
+                    manySpecies.length === 0 ?
+                        " "
+                        :
+                        manySpecies.map(item => (
+                            <li key={item}>
+                                {item.name}
+                            </li>
+                ))}
+                <div className="card__text__title">
+                    Films
+                </div>
+                {
+                    films.length === 0 ?
+                        " "
+                        :
+                        films.map(item => (
+                            <li key={item}>
+                                {item.title}
+                            </li>
+                ))}
+                <div className="card__text__title">
+                    Starships
+                </div>
+                {
+                    starships.length === 0 ?
+                        " "
+                        :
+                        starships.map(item => (
+                            <li key={item}>
+                                {item.name}
+                            </li>
+                ))}  <br/>
+                <div className="card__text__title">
+                    Vehicles
+                </div>
+                {
+                    vehicles.length === 0 ?
+                        " "
+                        :
+                        vehicles.map(item => (
+                            <li key={item}>
+                                {item.name}
+                            </li>
+                ))}  <br/>
+                <br/>
+           </span>
+        </div>
     );
 
 }

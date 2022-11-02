@@ -1,0 +1,40 @@
+* {
+  list-style-type: none;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  margin: 2rem;
+  background-color: deepskyblue;
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+  &__title {
+    font-size: 2.1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: lightskyblue;
+    width: 20rem;
+    border-radius: 1rem;
+    padding-top: 1rem;
+
+    &__title {
+      font-size: 0.6rem;
+      width: 4rem;
+      margin-left: 0;
+    }
+  }
+
+}
