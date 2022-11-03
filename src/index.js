@@ -16,8 +16,8 @@ root.render(
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<App />}>
-              <Route path="cards" element={<Cards />} />
-              <Route path="my-favorite" element={<MyFavorite />} />
+                  <Route path="cards" element={<Cards />} />
+                  <Route path="my-favorite" element={<MyFavorite />} />
               <Route
                   path="*"
                   element={
@@ -28,7 +28,7 @@ root.render(
               />
               </Route>
           </Routes>
-      </BrowserRouter>,
+      </BrowserRouter>
   </React.StrictMode>
 );
 
